@@ -1,12 +1,11 @@
-package tree;
+package facebookprepare;
 
 import java.util.Stack;
 
 /**
- * Created by yangw on 2019/6/24.
+ * Created by yangw on 2019/6/30.
  */
 public class bstIterator {
-
     TreeNode current;
     Stack<TreeNode> stack;
 
@@ -30,5 +29,4 @@ public class bstIterator {
         current = temp.right;
         return temp.val;
     }
-
 }

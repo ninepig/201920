@@ -1,4 +1,4 @@
-package tree;
+package tree.bst;
 
 /**
  * Created by yangw on 2019/6/24.

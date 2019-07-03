@@ -1,11 +1,11 @@
-package tree;
+package facebookprepare;
 
 import java.util.Stack;
 
 /**
- * Created by yangw on 2019/6/24.
+ * Created by yangw on 2019/6/30.
  */
-public class validBST {
+public class validBst {
     public boolean isValidBST(TreeNode root) {
         if(root == null){
             return true;
