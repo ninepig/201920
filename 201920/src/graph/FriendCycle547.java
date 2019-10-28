@@ -61,9 +61,9 @@ public class FriendCycle547 {
             int rootQ = findParent(q);
             if (rootP == rootQ) return;
             if (rank[rootP]> rank[rootQ]){
-                parent[rootP] = rootQ;
-            }else {
                 parent[rootQ] = rootP;
+            }else {
+                parent[rootP] = rootQ;
                 if (rank[rootP] == rank[rootQ]) {
                     rank[rootP]++;
                 }

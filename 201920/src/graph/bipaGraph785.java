@@ -20,7 +20,6 @@ public class bipaGraph785 {
                 while(! q.isEmpty()) {
                     int current = q.poll();
                     for (int c: graph[current]) {
-
                         if (visited[c] == 0) {
                             visited[c] = (visited[current] == 1) ? 2 : 1;
                             q.offer(c);
@@ -29,7 +28,6 @@ public class bipaGraph785 {
                         }
                     }
                 }
-
             }
         }
 
