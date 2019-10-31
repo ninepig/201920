@@ -5,6 +5,11 @@ import java.util.Queue;
 
 /**
  * Created by yangw on 2019/6/30.
+ * /**
+ * Created by yangw on 2019/10/26.
+ * 一定要看！ 这种题的判断结束条件，一旦出现一次就要return false，
+ * 而全部都要出现没问题，才能返回true！ 这就是为啥中间返回false
+ * 最终返回true的原因！ 因为false 是取一个反例即可。
  */
 public class bipaGraph785 {
     public boolean isBipartite(int[][] graph) {

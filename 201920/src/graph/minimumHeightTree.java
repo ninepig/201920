@@ -49,4 +49,7 @@ public class minimumHeightTree {
         }
         return result;
     }
+
+    // 和一姐的方法没啥区别
+    // https://leetcode.com/problems/minimum-height-trees/discuss/397464/Java-Topo-sort-Solution
 }

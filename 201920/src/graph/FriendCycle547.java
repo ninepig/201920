@@ -21,6 +21,7 @@ public class FriendCycle547 {
 
     // 找connection的过程，根据当前的student node，找和他connection的节点（学生），然后再连接到别的学生，dfs下去，直到把连接上所有的学生
     //然后循环找所有的学生，直到形成小岛（类似）
+    //
     private void dfs(int[][] m, int[] visited, int student) {
         for (int i = 0 ; i < m.length ; i++){
             if (visited[i] == 0 && m[student][i] == 1){

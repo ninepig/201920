@@ -25,6 +25,7 @@ import java.util.List;
  答：发现了环。假设explore到了cur点，cur点为灰色，此时所有其他的灰色点必定都是我的祖先，因为他们都是当前explore的路径上的点，
  cur在最战线的最前方explore，如果cur点在explore的时候发现自己的的孩子(邻居)有一个灰色，表示下面这个点即是我的祖先也是我的孩子，
  说明从cur可以走到cur自己，即出现了环。
+
  */
 public class DirectlyGraphCycleDetect {
     // DFS 3 color methods
@@ -43,6 +44,7 @@ public class DirectlyGraphCycleDetect {
             for (int[] edge : edges){
                 adjList.get(edge[0]).add(edge[1]);
             }
+            // 之前题目里做到过的，一旦有一个条件成立，就返回！ 不成立则是走全部的循环
 
             for (int i = 0 ; i < n ; i++){
                 if (white.contains(i)) {
