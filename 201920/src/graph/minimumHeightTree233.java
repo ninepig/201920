@@ -7,7 +7,7 @@ import java.util.*;
  * 这是一道树的题，所以bfs 是用一层的那种方法
  * topo +bfs 淘汰法
  */
-public class minimumHeightTree {
+public class minimumHeightTree233 {
     public List<Integer> minimumHeightTrees(int n , int[][] edges){
         List<Integer> result = new ArrayList<>();
         if (n == 1){
