@@ -52,57 +52,47 @@ public class ReduntantConnection684 {
         return false;
     }
 
-    class uf{
+    class UnionFind{
         int[] parent;
-        int[] rank;
-        public uf(int n){
-            this.parent = new int[n];
-            this.rank = new int[n];
-            for ( int i = 0 ; i < n ; i++){
+        int[] ranks;
+
+        public UnionFind(int size){
+            parent = new int[size+1];
+            ranks = new int[size+1];
+            for(int i = 0 ; i < size ; i++){
                 parent[i] = i;
+                ranks[i] = 1;
             }
         }
-        public boolean connect(int p , int q){
-            return find(p) == find(q);
-        }
-        public int find(int p ){
-            while (p != parent[p]){
-                parent[p] = parent[parent[p]];
-                p = parent[p];
+
+        public int find(int node){
+            while(parent[node] != node){
+                parent[node] = parent[parent[node]];
+                node = parent[node];
             }
-            return p;
+            return node;
         }
-
-        public void union(int p , int q){
-            int rootP = find(p);
-            int rootQ = find(q);
-
-            if (rootP == rootQ) return;
-
-            if (rank[rootP] > rank[rootQ]){
-                parent[rootQ] = rootP ;
-            }else{
-                parent[rootP] = rootQ;
-                if (rank[rootP] == rank[rootQ]){
-                    rank[rootP]++;
-                }
+        public boolean union(int node1 , int node2){
+            int node1Parent = find(node1);
+            int node2Parent = find(node2);
+            if(node1Parent == node2Parent) return false;
+            if(ranks[node1Parent] > ranks[node2Parent]) parent[node2Parent] = node1Parent;
+            else if (ranks[node1Parent] < ranks[node2Parent] ) parent[node1Parent] = node2Parent;
+            else{
+                parent[node1Parent] = node2Parent;
+                ranks[node1Parent] += 1;
             }
+            return true;
         }
     }
     public int[] findRedundantConnection2(int[][] edges) {
-
-        if (edges == null || edges.length == 0) return null;
-        uf unionFind = new uf(edges.length);
-        for (int[] edge : edges){
-            int u = edge[0];
-            int v = edge[1];
-           if (unionFind.connect(u,v)){
-               return edge;
-           }else {
-               unionFind.union(u,v);
-           }
+        UnionFind set = new UnionFind(edges.length);
+        for (int[] edge: edges){
+            if(!set.union(edge[0],edge[1])){
+                return edge;
+            }
         }
-        return null;
+        return new int[]{};
     }
 
 }

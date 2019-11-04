@@ -45,7 +45,9 @@ public class FriendCycle547 {
                 parent[i] = i;
             }
         }
-
+        public boolean isConnect(int p , int q){
+           return findParent(p) == findParent(q);
+        }
         public int findParent(int p ){
             // find it's parent and do path compression
             while (p != parent[p]){
