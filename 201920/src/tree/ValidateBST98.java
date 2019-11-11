@@ -19,6 +19,8 @@ public class ValidateBST98 {
 
         return helper(root.left, min, root.val) && helper(root.right, root.val, max);
     }
+
+
     TreeNode pre = null;
     public boolean isValidBSTIt(TreeNode root) {
         if (root == null) return true;

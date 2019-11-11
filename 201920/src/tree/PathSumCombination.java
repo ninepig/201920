@@ -44,6 +44,7 @@ public class PathSumCombination {
       再次尝试要去掉1
       再加上2
       同一层 需要remove掉最后一个让别人尝试。
+      TODO check here ! your problem for 124
      */
     public List<List<Integer>> pathSumII(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();
@@ -115,6 +116,7 @@ public class PathSumCombination {
         }
         int level = node / 10;
         int pos = node % 10;
+
         int value = map.get(node);
 
         cur += value;
