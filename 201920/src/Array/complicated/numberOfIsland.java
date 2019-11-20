@@ -1,4 +1,4 @@
-package Array.matrix;
+package Array.complicated;
 
 public class numberOfIsland {
     public int numIslands(char[][] grid) {

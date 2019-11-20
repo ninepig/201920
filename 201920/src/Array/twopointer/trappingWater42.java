@@ -1,4 +1,4 @@
-package Array.normalList;
+package Array.twopointer;
 
 public class trappingWater42 {
     // 这个双指针 是需要画图理解的
