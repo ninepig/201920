@@ -62,7 +62,7 @@ public class popingNextRightPointer116117 {
 }
 
 class Node {
-    int val;
-    Node left, right, next;
+    public int val;
+    public Node left, right, next;
     Node(int x) { val = x; }
  }

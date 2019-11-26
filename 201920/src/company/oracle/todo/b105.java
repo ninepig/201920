@@ -1,4 +1,4 @@
 package company.oracle.todo;
 
-public class wordladder2 {
+public class b105 {
 }

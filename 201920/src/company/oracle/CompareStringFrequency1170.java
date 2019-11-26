@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 
 public class CompareStringFrequency1170 {
-    // My way ... not a good way . too low ?
+    // My way ... not a good way . too slow ?
     public static int[] numSmallerByFrequency(String[] queries, String[] words) {
         if (queries == null || words == null || queries.length == 0 || words.length == 0)
             return new int[0];

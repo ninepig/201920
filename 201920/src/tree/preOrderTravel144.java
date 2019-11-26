@@ -20,7 +20,7 @@ public class preOrderTravel144 {
     }
 
     public List<Integer> preorderTraversalNoneRecursive(TreeNode root) {
-        if (root == null){
+        if (root == null) {
             return new ArrayList<>();
         }
         List<Integer> res = new ArrayList<>();
@@ -30,24 +30,24 @@ public class preOrderTravel144 {
         systemStack.push(0);
         paraStack.push(root);
 
-        while(!systemStack.isEmpty()){
+        while (!systemStack.isEmpty()) {
             int curline = systemStack.pop();
             TreeNode curPara = paraStack.peek();
             systemStack.push(curline + 1);
 
-            if (curline == 0){
+            if (curline == 0) {
                 res.add(curPara.val);
-            }else if (curline == 1){
+            } else if (curline == 1) {
                 if (curPara.left != null) {
-                systemStack.push(0);
-                paraStack.push(curPara.left);
-            }
-            }else if (curline == 2){
-                if (curPara.right != null){
+                    systemStack.push(0);
+                    paraStack.push(curPara.left);
+                }
+            } else if (curline == 2) {
+                if (curPara.right != null) {
                     systemStack.push(0);
                     paraStack.push(curPara.right);
                 }
-            }else {
+            } else {
                 systemStack.pop();
                 paraStack.pop();
             }
@@ -57,20 +57,23 @@ public class preOrderTravel144 {
 
     public List<Integer> preorderTraversalSingleStack(TreeNode root) {
         List<Integer> res = new ArrayList();
-        if(root == null){
+        if (root == null) {
             return res;
         }
         Stack<TreeNode> s = new Stack<>();
         s.push(root);
-        while(!s.isEmpty()){
+        while (!s.isEmpty()) {
             TreeNode cur = s.pop();
             res.add(cur.val);
             // reversed adding in to stack
-            if (cur.right!= null) s.push(cur.right);
+            if (cur.right != null) s.push(cur.right);
             if (cur.left != null) s.push(cur.left);
 
         }
         return res;
     }
-
 }
+
+
+
+
