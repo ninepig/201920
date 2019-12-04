@@ -2,7 +2,12 @@ package company.oracle.mianjing;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=548427&extra=page%3D2%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B2%5D%3D2%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
 
+leetcode 969, 不但要写完，还要跑几个测试例子确认正确，不要求优化但是可以讨论一下思路。时间还是有一点紧的。
+russian
+ */
 public class pancakeSorting969 {
     public List<Integer> pancakeSort(int[] A) {
         // Found the largest
