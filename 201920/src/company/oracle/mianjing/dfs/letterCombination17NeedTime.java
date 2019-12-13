@@ -1,9 +1,12 @@
-package company.oracle.mianjing;
+package company.oracle.mianjing.dfs;
 
 import java.util.ArrayList;
 import java.util.List;
 /*
 need using StringBuilder ！
+Time complexity : (3^N * 4^M)
+where N is the number of digits in the input that maps to 3 letters (e.g. 2, 3, 4, 5, 6, 8) and M is the number of digits in the input that maps to 4 letters
+
  */
 public class letterCombination17NeedTime {
     public List<String> letterCombinations(String digits) {

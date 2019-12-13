@@ -1,4 +1,4 @@
-package company.oracle.mianjing;
+package company.oracle.mianjing.tree;
 
 import LinkedList.ListNode;
 

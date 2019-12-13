@@ -1,4 +1,4 @@
-package company.oracle.mianjing;
+package company.oracle.mianjing.StringRelated;
 
 import java.util.Stack;
 

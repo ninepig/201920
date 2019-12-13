@@ -1,4 +1,4 @@
-package company.oracle.mianjing;
+package company.oracle.mianjing.array;
 
 /*
 上午面了OCI 的电面，面试官应该是印度人，提前了十分钟发来了codepad 的邮件，然后电话也就来了。
@@ -10,6 +10,20 @@ package company.oracle.mianjing;
 这个面试官有点喜欢看到什么错误就立刻指出来，写test的时候我copy了一个 parameter 的name（类似于testArray1，testArray2 这种），还没等把数字改了他开始提醒我，你要改数字。
 
 因为开始早了，而且留下了大把的时间，剩下就变成了纯聊天，这个部分我倒是觉得跟面试官聊的很开心。有一种跟同事聊天的感觉。
+
+
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=561789&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B2%5D%3D2%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
+在coderpad上寫
+
+1. 問resume
+2. Rotated Sorted Array找最小值
+(記得要clarify問題)
+面試官會故意把題目說的很vague (像是他沒說elements是不是duplicates 你要自己問
+follow up 你目前答案能處 duplicates case 嗎
+
+3. serialize and deserialize binary tree 沒要寫 但問你思路
+
+
  */
 public class findMinInRotatedSortedArray {
     class noDuplicated {
