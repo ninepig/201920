@@ -1,8 +1,9 @@
-package graph;
+package company.oracle.mianjing.graph;
 
 import java.util.ArrayList;
-import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by yangw on 2019/10/21.
  */

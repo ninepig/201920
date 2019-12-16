@@ -2,6 +2,7 @@ package company.oracle.mianjing.StringRelated;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /*
 https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=567866&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B2%5D%3D2%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
@@ -35,7 +36,7 @@ public class PermutationPalindromeAndWiredTreeConstructTodo {
         }
     }
     private int cur = 0;
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         PermutationPalindromeAndWiredTreeConstructTodo m = new PermutationPalindromeAndWiredTreeConstructTodo();
         String s = "((()))";
         m.buildTree(s);
@@ -57,6 +58,56 @@ public class PermutationPalindromeAndWiredTreeConstructTodo {
 //        }
 
         return  node;
+    }
+
+
+
+    public static void main(String[] args) {
+        PermutationPalindromeAndWiredTreeConstructTodo m = new PermutationPalindromeAndWiredTreeConstructTodo();
+        TreeNode root = m.buildTree2("((())())");
+        m.inorder(root, 0,"");
+        System.out.println("Hello World!");
+    }
+
+    class TreeNode {
+        int left;
+        int right;
+        List<TreeNode> kids;
+        public TreeNode(int left) {
+            this.left = left;
+            kids = new LinkedList<>();
+        }
+    }
+
+    private void inorder(TreeNode root, int level, String space) {
+        if(root == null)
+            return;
+        System.out.println(space+level+":"+root.left +","+root.right);
+        space += " ";
+        for(TreeNode kid : root.kids)
+            inorder(kid, level + 1, space);
+    }
+
+    private TreeNode buildTree2(String s) {
+        if (s == null || s.length() == 0) return new TreeNode(-1);//?
+        Stack<TreeNode> nodes = new Stack<>();
+        nodes.push(new TreeNode(0));
+        for(int i = 0; i < s.length() - 1; i++) {
+            char c = s.charAt(i);
+            if(c == '(') {
+                TreeNode node = new TreeNode(i);
+                nodes.peek().kids.add(node);
+                nodes.push(node);
+//                System.out.println(node.left);
+            }
+            else {
+                TreeNode cur = nodes.pop();
+                cur.right = i;
+            }
+        }
+        TreeNode root = nodes.pop();
+        root.right = s.length() - 1;
+        return root;
     }
 
 }

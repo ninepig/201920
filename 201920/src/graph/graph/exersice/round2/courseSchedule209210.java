@@ -15,7 +15,7 @@ public class courseSchedule209210 {
         }
         // Direct Graph
         List<List<Integer>> map = new ArrayList<>();
-        int[] indegree = new int[prerequisites.length];
+        int[] indegree = new int[numCourses];
 
         for (int i = 0 ; i < numCourses ; i++){
             map.add(new ArrayList<>());
