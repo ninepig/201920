@@ -47,9 +47,9 @@ public class subArraySumClosedToZero {
                     return a.sum - b.sum;
                 }
             });
+
             int ans = Integer.MAX_VALUE;
             for (int i = 1; i <= len; i++) {
-
                 if (ans > sums[i].sum - sums[i-1].sum) {
                     ans = sums[i].sum - sums[i-1].sum;
                     int[] temp = new int[]{sums[i].index - 1, sums[i - 1].index - 1};
