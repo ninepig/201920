@@ -62,10 +62,27 @@ public class maxSubArray {
         }
         return max;
     }
+
+
+//    第一题是给一个int list 找最大连续最大sum 遇到负的变成零
+    public static int maxSubArrayWithNegtive(int[] nums) {
+    if (nums == null || nums.length == 0) return 0;
+    int local = 0;
+    int max = 0;
+    for (int i = 0 ; i < nums.length ;i++){
+        if (nums[i] < 0){
+            local = 0;
+        }else {
+            local = nums[i] + local;
+        }
+        max = Math.max(max, local);
+    }
+    return max;
+}
     // Driver code
     public static void main(String[] args) {
         int[] a = new int[]{ -2, -3, 4, -1, -2, 1, 5, -3 };
         int n = a.length;
-       maxSubArrayPrintingOut(a);
+        System.out.println(maxSubArrayWithNegtive(a));
     }
 }

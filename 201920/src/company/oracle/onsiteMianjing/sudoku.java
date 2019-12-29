@@ -64,6 +64,11 @@ public class sudoku {
      int ColIndex = 3 * (i % 3);
      */
 
+    /*
+    第一轮，利口伞留一个白人CPP大神，非常扣细节，不要单单写普通的solution，而是要当作实际需要应用的api去写，
+    中间讨论了空间O(1)情况下该怎么做（硬核每行每列每cube两两比较），或者空间够怎么优化（cache避免重复），
+    以及遇到不合理的input怎么办？我提出抛出异常，然后继续讨论异常抛出的一些实际问题，还有如果不单单想知道valid or not，还想知道那个cell出问题了怎么办
+     */
     public boolean isValidSudoku(char[][] board) {
         if (board == null || board.length == 0) return false;
 

@@ -1,7 +1,5 @@
-package company.oracle.onsiteMianjing;
+package company.oracle.mianjing.StringRelated;
 
-import javax.print.DocFlavor;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

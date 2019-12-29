@@ -1,4 +1,4 @@
-package company.oracle.onsiteMianjing;
+package company.oracle.mianjing.design;
 
 import java.util.TreeMap;
 

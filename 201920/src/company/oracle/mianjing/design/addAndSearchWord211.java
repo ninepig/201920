@@ -1,5 +1,6 @@
 package company.oracle.mianjing.design;
 
+// prefix tree insert & search O(K) time
 public class addAndSearchWord211 {
 
     class TrieNode{

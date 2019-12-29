@@ -1,4 +1,4 @@
-package company.oracle;
+package company.oracle.mianjing.list;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -113,16 +113,17 @@ public class randomListCopy138 {
             } else {
                 newNode = map.get(head);
             }
-            if (!map.containsKey(head.random)) {
-                newNode.random = new Node(head.random.val);
-                map.put(head.random, newNode.random);
-            } else {
-                newNode.random = map.get(head.random);
+            if (head.random != null) {
+                if (!map.containsKey(head.random)) {
+                    newNode.random = new Node(head.random.val);
+                    map.put(head.random, newNode.random);
+                } else {
+                    newNode.random = map.get(head.random);
+                }
             }
             pre.next = newNode;
             pre = pre.next;
             head = head.next;
-
         }
         return dummy.next;
     }
@@ -142,7 +143,10 @@ public class randomListCopy138 {
         cur = head;
         while (cur != null){
             if (cur.random != null){
-                cur.next.random = new Node(cur.random.val);
+                // 这句是关键。
+                // 1-1' --2 -2` ---3---3`
+                //如果1的random node 是3 那1’的random node 就是 1的random的next
+                cur.next.random = cur.random.next;
             }
             cur = cur.next.next;
         }
