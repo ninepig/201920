@@ -28,4 +28,4 @@ public class zigZag {
         return sb[0].toString();
     }
 }
-}
+

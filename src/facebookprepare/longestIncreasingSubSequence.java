@@ -18,8 +18,6 @@ public class longestIncreasingSubSequence {
             (2) if tails[i-1] < x <= tails[i], update tails[i]
     Doing so will maintain the tails invariant. The the final answer is just the size.
 
-            Java
-
     public int lengthOfLIS(int[] nums) {
         int[] tails = new int[nums.length];
         int size = 0;
