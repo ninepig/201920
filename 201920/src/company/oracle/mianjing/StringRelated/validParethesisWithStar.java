@@ -22,8 +22,7 @@ public class validParethesisWithStar {
                 parenthesisCount++;
                 starsAfterOpeningCount = 0;
             }
-            else
-            if (inputChar == ')') {
+            else if (inputChar == ')') {
                 if (parenthesisCount == 0) {
                     if (starsCount == 0)
                         return false;
@@ -32,14 +31,10 @@ public class validParethesisWithStar {
                 }
                 else
                     parenthesisCount--;
-            }
-            else
-            if (inputChar == '*') {
+            } else if (inputChar == '*') {
                 starsCount++;
                 starsAfterOpeningCount++;
-            }
-            else
-                throw(new UnexpectedException("Unexpected input"));
+            } else throw(new UnexpectedException("Unexpected input"));
         }
 
         return (starsAfterOpeningCount - parenthesisCount) >= 0;

@@ -7,7 +7,7 @@ import java.util.Queue;
 /**
  * Created by yangw on 2019/10/21.
  */
-public class CourseSchudule209 {
+public class CourseSchudule207 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (prerequisites == null || prerequisites.length == 0) return false;
         int count = 0 ;

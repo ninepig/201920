@@ -6,7 +6,7 @@ https://github.com/mission-peace/interview/blob/master/src/com/interview/string/
 2. 有两个string，找出首尾最多重叠多少？我说可以暴力，问要不要code。同胞说能不能效率高点？我假装想了一会说可以用KMP。问能不能写出code，我说一时可能写不出，就讲了讲思路。同胞表示满意。
 
  */
-public class KMPTODO {
+public class KMP {
     //O(m*n)
     public static int searchBrutal(String text, String pattern) {
         int N = text.length();
@@ -68,7 +68,7 @@ public class KMPTODO {
 
         String str = "abcxabcdabcdabcy";
         String subString = "abcdabcy";
-        KMPTODO ss = new KMPTODO();
+        KMP ss = new KMP();
         boolean result = ss.kmp(str.toCharArray(), subString.toCharArray());
         System.out.print(result);
 

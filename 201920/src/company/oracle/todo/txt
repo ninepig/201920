@@ -1,0 +1,181 @@
+restarant reservation system
+
+设计一个类似instgram的系统，答得还不错
+
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=573658&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B3%5D%3D3%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
+怎样把二叉搜索树分布式地部署在多台机器上。我说了一个master slave的方法。他提了一个非常直接的方法，然后问我说他的方法有什么优点。我觉得他设计的不太好
+
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=573556&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B3%5D%3D3%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
+ 需要design一个parking sensor??
+
+ 设计租车系统
+
+ 第4轮：system design, rate limiter
+
+
+后系统设计能接受不同类型的扑克游戏，再问问怎么分布式，work flow，后又让写2小算法，洗牌，和，5张牌判断3张牌数字一样。BQ两三个。
+
+然后来了个发牌的OOD
+
+第四轮是System Design: 问如何在云上部署一个应用，比较关注具体的知识点，比如LB和consistent hashing
+
+
+2.系统设计，一个给用户规划逛商场最短路径的应用
+
+设计一个Theatre tickets booking system
+
+tiny url
+
+电梯设计
+
+主要问了一些mapreduce和hdfs的东西
+
+因为我有ecommerce的背景，就让我设计一个inventory uploading系统，读入csv或者excel，根据其内容更新数据库里的产品信息
+
+
+如何实现elastic的 allocate storage
+还有就是怎么样如何合理的分配我的存储节点的写入读取。
+
+ system design。 Design Messenger。问了很多问题，细节不少。
+
+ 一个小系统设计，两个异地的数据中心，同时是读写库，怎么去同步数据。
+
+ 第二轮：问了一些项目里的问题，接下来问我一个full stack的系统如何Debug，讨论了很多细节。。。然后又让我设计一个点歌系统，顾客可以花钱在一个屏幕上点歌。之中问到了哪些歌应该放在前面，我说可以用LRU cache, 于是又让我讲了讲实现，感觉自己讲得不是很清楚。
+
+ 问我分布式文件存储系统，一个很大的文件的存取流程是什么。我对这方面不太了解，扯了一点皮毛之后扯不下去了，直接跟面试官说我不太懂呀。面试官说好吧那我来考你别的吧，于是问了我一道算法题：在棋盘上给一个起点一个终点，判断国际象棋里面的Knight（类似中国象棋里的马）是否能够从起点移到终点。我用的BFS, 但是貌似有更简单的方法。 设计一个点歌系统，顾客可以花钱在一个屏幕
+
+map reducer~~
+
+https://jiayi797.github.io/2018/03/18/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F-Map-Reduce%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/
+
+设计K-V store，用户分布在全球，要求尽量低的latency
+
+https://medium.com/system-designing-interviews/system-design-chapter-4-caching-b59a4cf83f10
+
+Some other points i need mention
+SQL Performance sql 安全问题
+http://www.shixinke.com/mysql/mysql-sql-optimization-with-using-explain-and-show-profile
+https://zhuanlan.zhihu.com/p/27879034
+DNS How browser works
+ https://www.zhihu.com/question/23042131
+
+Cloud Security
+
+湾区组
+就基于项目描述问了系统设计，microservice如何做migration,如何同步db
+如果user 同时修改db该怎么办，batch processing优缺点
+
+系统怪问
+第二轮: 临时抓来的一个面试官， 没有做题， 问的都是现场想的问题
+1.war 和 pom 有什么关系， pom 文件是怎么build的
+2.给两个table， 让我写hibernate entity和 lazy loading 的query
+3.java里面hashtable concurrenthashmap的区别
+4.spring ioc aop分别有什么特性，是怎么实现的
+5.数组，hashmap， linkedhashmap 有什么区别
+6.让我写了个arraylist 的最简单的binary search
+7.oracle里面delete 和 truncate区别
+8.inner join outer join 区别
+9.spring servlet是怎么工作的
+---------------
+GFS
+BIG TABLE
+map reducer
+
+第一轮：问我分布式文件存储系统，一个很大的文件的存取流程是什么。我对这方面不太了解，扯了一点皮毛之后扯不下去了，直接跟面试官说我不太懂呀。面试官说好吧那我来考你别的吧，于是问了我一道算法题：在棋盘上给一个起点一个终点，判断国际象棋里面的Knight（类似中国象棋里的马）是否能够从起点移到终点。我用的BFS, 但是貌似有更简单的方法。
+hadoop and hdfs
+https://blog.csdn.net/guyuealian/article/details/51867896
+
+
+---------------------算法todo---------------------
+dfs怪题
+https://www.1point3acres.com/bbs/thread-572648-1-1.html
+Morris
+remove same subtrees
+
+5. bar raiser。白人大哥。问了一堆bq之后忽然开始做题（？？？）。一个叫flow free的游戏。一个2d board上有各种颜色的点，每种颜色的点有两个，要求把相同颜色的点两两相连，相连时线之间不可以交叉，如果可以满足要求return true，否则return false。自己define input，output。太特么难了吧，我想来想去觉得比airbnb那个boggle game还难。。。
+做法应该是dfs里面嵌套dfs，时间复杂度非常非常非常高，我写啊写也写不出来，面试官最后说，这个题很难，我面这个题面试里面还没有人做出来过。
+难的好想哭。。。谁会做。。。
+leetcode 1035
+https://blog.csdn.net/deepseazbw/article/details/81281628
+http://keep.01ue.com/?pi=908253&_a=crawl&_c=index&_m=p
+
+leetcode 722
+
+// 计算机 系列
+
+这三个应该是一起的
+	无向图最短路径
+	https://www.cnblogs.com/hapjin/p/5435724.html
+	1. 有一个岛 （2D array），每一个cell 都有高度。 找到一个valid path， from left up coner to right bottom coner.
+	    只有一个限制条件，只能爬上爬下一次，或者完全不爬。
+	    我刷题没有很多，不知道刷题网上有没有原题。小伙伴们可以提供信息。
+	https://www.jianshu.com/p/da40edfb5b08
+	bfs queue的过程  然后反向输出即可。 把那个maze 弄清楚
+
+
+01背包问题。其实背包问题我是一直没透彻，不过现场是推出了一个DP的思路，但是面试官听完却说这个太慢要给我贪心的hint。我当时就觉得贪心不能解决这个问题，但是一时无从反驳，就顺着他往下说，说完他好像还很满意？（是不是很满意我踩到他的坑里）
+有n个task，每个task有自己的执行时间，可以确保每个task都能同时独立运行。现在只有k个线程，k < n，怎么分配使得总时间最短
+
+1044
+https://leetcode.com/problems/longest-duplicate-substring/discuss/409941/Suffix-Trie-inspired-Java-solution-that-counts-during-insertion
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=570613&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B3%5D%3D3%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
+snake game
+758
+addOrRandomString
+
+如果R3不是limit组 R2就是limit组 和R1 R3不同组 基本无口音的南亚人口大国人士 比较nice
+1分钟面试官模板介绍组+1分钟我模板介绍我
+给字符串，含有三种括号() {} []及别的字符，问如何判断是否valid
+
+follow up是如果不valid，怎么删除括号使其valid
+
+
+
+BQ
+10/23 one
+1、为什么选oracle
+2、介绍你自己
+3、最自豪的一件technical的事
+4、跟同事发生冲突怎么办
+5、talk about a thing that takes a long time to do, and you need to divide it up into several small steps
+6、讲一下你之前犯过的一个错误，以及你如何解决的（是你发现的bug还是别人发现的，为什么刚开始没有发现，在修bug之前要是否考虑了该bug的cost）
+
+1 have u ever heard critical feedback from others
+临时转换focus之类
+
+中层北欧籍manager 毫无口音 语速巨快
+全程BQ，扯了太多淡，记不全了。忘记有没有让我自我介绍了，反正接着就是让我问问题
+
+我以为要问45分钟，憋死了问了20分钟实在不行了（我忘了我问啥了），只好问他有没有问题要问我
+他说我当然有问题要问你，我只是想make sure你想问的都问完了。。
+
+第一个问题就是：why oracle，我先讲了为什么想跳槽，这是自己心里知道的，可以不用思考，一边说一边思考一下核心部分要怎么答。
+先说了reputation，然后根据他之前给我吹逼的部分讲了下people，最后讲了下我心里的一个重要因素location
+
+后面又问了一些小问题，我记不清了，只记得两个比较重要的：
+
+1是，有没有一个idol你一直在follow和模仿的。听到idol这个词，我差点就给他来一段唱跳rap，但是很快冷静了下来。
+思考了一下这个题要怎么答，定了一个计划，先说technical上没有idol，主要是博采众长，这里学一点那里学一点，取长补短；然后再说non technical方面，把乔布斯和马斯克拉出来遛遛。
+然后我才答完technical的，他以为我说完了。。就开始解释为啥要问这个问题。。
+我就顺便反问他有没有idol，他声情并茂给我讲了好几分钟他小时候和他爷爷的故事。他的背景，他的形象，他的故事，不禁让我想起了最新的一代《战神》。
+
+另一个很重要的问题是个scenario模拟题：
+
+给你两个project，a和b，一样的难度，一样的重要性，一样的deadline，两个项目内容毫无交集，先做哪一个。
+我问了一个follow up：deadline够做完两个项目吗，回答“够”
+我就说那我会同时做，本来想接着扯一扯自己的multi tasking能力，结果被无情打断，又加了一个条件：两个项目一旦开始就得做完该项目才能做另一个。。。。
+
+我太难了！想了半天不得而知，只好说我会去问manager，没想到他觉得这是个good idea，给我在小本本上记了一笔。然而还是遗憾地告诉我，manager让你自己决定。。。
+
+我更难了！没办法只好说，一定会有不同点的，找到不同点就能prioritize了；实在找不到不同点，就随便开始一个项目吧，与其一直纠结，不如按字母顺序做完算了
+
+答完以后面试官给我解释了一下，我答到的点有：1 问清楚deadline是不是够用；2 知道自己有困难要去问manager；没答到的点在于，没看到bigger picture，你的客户肯定不止两个，强调两个项目之间没有交集，其实是暗示需要考虑更多的项，应该选那个更能复用别的客户的项目上的。
+
+，先问了半个多小时行为面试，问有没有看乌龟壳的价值观、工作中的困难及怎样克服、为什么要来乌龟壳等等等等
+
+白人大叔工作了二十多年。问了俩行为面：职业目标是什么、解决过的最大的一个技术问题是什么。
+
+
+有些很奇怪比如你最讨厌的cs领域，work with difficult ppl
+
+behavior: If your project has dependency on external teams, what do you do? Who's your role model? You have one project that takes 8 days and another project takes 2 days, which project do you do first。

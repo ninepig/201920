@@ -5,7 +5,7 @@ import tree.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ifFullBt958 {
+public class ifCompleteBt958 {
     public boolean isCompleteTree(TreeNode root) {
         if(root == null) {
             return true;

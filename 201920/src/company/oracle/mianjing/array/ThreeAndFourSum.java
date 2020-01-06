@@ -6,8 +6,9 @@ import java.util.List;
 
 /**
  * Created by yangw on 2019/12/16.
+ * 1. find unique triplets, 4plets, nplets( nplets就 triplets做recursion的base case就行）
  */
-public class ThreeSum17 {
+public class ThreeAndFourSum {
 
     /**
      * Created by yangw on 2019/6/30.

@@ -24,8 +24,8 @@ public class wildCardSimple {
     }
 
     public static void main(String ... args){
-        String a = "abc";
-        String b = "ab?";
+        String a = "aac";
+        String b = "a??";
         System.out.println(isMatch(a,b));
     }
 }

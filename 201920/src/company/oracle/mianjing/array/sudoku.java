@@ -26,7 +26,6 @@ public class sudoku {
                                 board[i][j] = '.'; //Otherwise go back
                         }
                     }
-
                     return false;
                 }
             }
@@ -45,6 +44,17 @@ public class sudoku {
     }
 
 
+    /*
+    TIP Now,remember how we convert 1D matrix to 2D matrix? If we have a 1D matrix of size 9 and we want to convert it into i x j 2D matrix (consider 3x3 matrix here, i = 3 and j = 3):
+    Element at position i in the 1D array can be found at position [ i / 3 ] [i % 3] in 2D array.
+
+    Now that we have cube position, let's say 4. How do we find the co-ordinates of this cube in terms of Sudoku? Acc to the TIP : Cube is at [4/3][4%3] position in Sudoku. How to get the top left corner of this cube? Just have to multiply positions by 3. i.e [3*(4/3)] [3* (4%3)]
+    topLeftI = 3*(4/3);
+    topLeftJ = 3* (4%3)
+    At this point we have the access of the top left corner of the cube, that is 0th item of the cube 4. Now how to get jth item in the cube? Similar to the TIP:
+    positionI = topLeftI + (j / 3);
+    positionJ = topLeftJ + (j % 3);
+     */
 
     public boolean isValidSudoku(char[][] board) {
         if (board == null || board.length == 0) return false;

@@ -12,6 +12,12 @@ https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=553045&extra=page%
 If it is float
 float.Compare(a,b)
 
+
+followup: 如果output object有三种类型如何改output，1) enum : "can be merged" or "cannot be merged" 2) boolean 3）List after merged
+
+ 直接做题刷题网舞流，follow up是如果是float怎么办，float比较的话有的时候会不准确该怎么办
+float.Compare(a,b)
+
  */
 public class mergeIntervals56 {
     public int[][] merge(int[][] intervals) {
