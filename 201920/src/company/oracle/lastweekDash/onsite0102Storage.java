@@ -6,7 +6,7 @@ package company.oracle.lastweekDash;
  * Alot todo
  * https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=582397&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B3%5D%3D3%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D7%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
  */
-public class onsite0102 {
+public class onsite0102Storage {
     /*
     两道BQ，一道SystemDesign。
     BQ1犯过的错误，学到了什么。
@@ -18,6 +18,7 @@ public class onsite0102 {
     两道BQ，一道算法。
     BQ1 你正在做一个project，这时候有另外一个task，怎么prioritize
     BQ2 你同事要deploy一个新system，你要oncall了，你会问你同事什么问题。
+    算法，给一个int n代表二叉树的深度，返回所有可能这一深度二叉树的结构。follow up，如何写unit tests
      */
 
     /*
@@ -38,7 +39,24 @@ public class onsite0102 {
         // n^2
         return false;
     }
+    // when find a number i, flip the number at position i-1 to negative.
+    // if the number at position i-1 is already negative, i is the number that occurs twice.
+    // it need to promise from 1--n Other wise if will call error like oobounds
+    public boolean oneToNway(int[] nums,int N) {
+        if(nums == null || nums.length == 0) return false;
 
+        for (int i = 0 ; i < nums.length ; i++){
+
+            if (nums[i] > N) return false;
+            int index = nums[i] - 1;
+            if (nums[index] < 0){
+                return false;
+            }
+            nums[index] = -nums[index];
+        }
+
+        return true;
+    }
 
     /*
     第四轮，美国大叔？

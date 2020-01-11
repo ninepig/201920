@@ -13,7 +13,7 @@ public class MorrisTravel {
 
     public void inorder(TreeNode root){
         TreeNode current = root;
-        while(current == null){
+        while(current != null){
             // Left is null , then print the node and go to right
             if (current.left == null){
                 System.out.println(current.val);
@@ -32,7 +32,7 @@ public class MorrisTravel {
                     predecssor.right = current;
                     current = current.left;
                 }else {
-                // Print this predecssor , delte the link . And go right
+                    // Print this predecssor , delte the link . And go right
                     // it means we have a link back to the previous root.
                     predecssor.right = null;
                     System.out.println(current.val +" ");
@@ -69,29 +69,60 @@ public class MorrisTravel {
         }
     }
 
-    public void morrisTravel(TreeNode root){
+    public void inorderMorris(TreeNode root) {
+        if (root == null) return;
         TreeNode cur = root;
-
-        if(cur.left == null){
-            System.out.println(cur.left.val);
-            cur = cur.right;
-        }else{
-            TreeNode predecessor = cur.left;
-            while (predecessor.right != cur && predecessor.right != null){
-                predecessor = predecessor.right;
-            }
-            if (predecessor.right == null){
-                // inorder
+        while (cur != null) {
+            if (cur.left == null) {
                 System.out.println(cur.val);
-                predecessor.right = cur;
-                cur = cur.left;
-            }else{
-                // preorder
-                System.out.println(cur.val);
-                predecessor.right = null;
                 cur = cur.right;
+            } else {
+                // Finding Predeccsor
+                TreeNode predeccsor = cur.left;
+                // Predeccsor has not link with cur and find rightest one.
+                while (predeccsor.right != cur && predeccsor.right != null) {
+                    predeccsor = predeccsor.right;
+                }
+                // Has not linked to cur.
+                if (predeccsor.right == null) {
+                    predeccsor.right = cur;
+                    // Move to left.
+                    cur = cur.left;
+                } else {
+                    // It realize we already have link here , it means , we already visited left node
+                    // So we move the predccosr's link.  Visited Cur Node. Move to right node
+                    predeccsor.right = null;
+                    System.out.println(cur.val);
+
+                    cur = cur.right;
+                }
             }
         }
+    }
+        public void preorderMorris2(TreeNode root){
+            if (root == null) return;
+            TreeNode cur = root;
+            while (cur != null) {
+                if (cur.left == null){
+                    System.out.println(cur.val);
+                    cur = cur.right;
+                }else {
+                    TreeNode predesscor = cur.left;
 
+                    // No link and has right child
+                    while (predesscor.right != null && predesscor.right!=cur){
+                        predesscor = predesscor.right;
+                    }
+
+                    if (predesscor.right == null){
+                        predesscor.right = cur;
+                        System.out.println(cur.val);
+                        cur = cur.left;
+                    }else {
+                        predesscor.right = null;
+                        cur = cur.right;
+                    }
+                }
+        }
     }
 }

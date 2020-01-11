@@ -9,7 +9,7 @@ where N is the number of digits in the input that maps to 3 letters (e.g. 2, 3, 
 
  */
 public class letterCombination17NeedTime {
-    public List<String> letterCombinations(String digits) {
+    public static List<String> letterCombinations(String digits) {
         if (digits == null || digits.length() == 0) return new ArrayList<>();
         String[] map = new String[]{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
         List<String> res = new ArrayList<>();
@@ -17,17 +17,25 @@ public class letterCombination17NeedTime {
         return res;
     }
 
-    private void helper(String[] map, List<String> res, StringBuilder s, String digits,int pos) {
+    private static void helper(String[] map, List<String> res, StringBuilder s, String digits,int pos) {
         if (s.length() == digits.length()){
             res.add(s.toString());
             return;
         }else{
-            String str = map[Character.getNumericValue(digits.charAt(pos))];
-            for (char c : str.toCharArray()){
-                s.append(c);
-                helper(map,res,s,digits,pos+1);
+//            if (pos < digits.length()) {
+                String str = map[Character.getNumericValue(digits.charAt(pos))];
+                for (char c : str.toCharArray()) {
+                    s.append(c);
+                    helper(map, res, s, digits, pos + 1);
                 s.deleteCharAt(s.length() - 1);
-            }
+                }
+//            }
+        }
+    }
+
+    public static  void main(String ... args){
+        for (String s : letterCombinations("2344")){
+            System.out.println(s);
         }
     }
 }

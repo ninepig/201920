@@ -4,13 +4,13 @@ package company.oracle.mianjing.design;
 import java.util.Random;
 
 public class reserviorAddAndGettingString {
-    Node head;
+    Node dummy;
     Random r ;
     Node cur;
     public reserviorAddAndGettingString(){
-        head = new Node("");
+        dummy = new Node("");
         r = new Random();
-        cur = head;
+        cur = dummy;
     }
 
     public void addString(String a){
@@ -19,12 +19,12 @@ public class reserviorAddAndGettingString {
         cur = thisNode;
     }
 
-    public String evenGetNextTarget(String a){
-        Node newHead = head.next;
+    public String evenGetNextTarget(String target){
+        Node newHead = dummy.next;
         String res = null;
         int count = 1;
         while (newHead != null){
-            if (newHead.val.equals(a) && newHead.next!=null){
+            if (newHead.val.equals(target) && newHead.next!=null){
                 if (r.nextInt(count++)==0){
                     res = newHead.next.val;
                 }

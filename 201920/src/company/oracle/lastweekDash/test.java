@@ -13,10 +13,12 @@ public class test {
 //        String c = "aa";
 //        String b = "aa?";
 //        System.out.println(a.isMatch(c,b));
-        int[] b = new int[]{1,2,2,2,3,4};
-        for (int number :a.inplaceRemoveDuplciated(b)){
-            System.out.println(number);
-        }
+//        int[] b = new int[]{1,2,2,2,3,4};
+//        for (int number :a.inplaceRemoveDuplciated(b)){
+//            System.out.println(number);
+//        }
+         int[] b = new int[]{1,2,3,4,5};
+         System.out.println(a.findDuplicates(b));
      }
 }
 class reverseIntervalMap {
@@ -119,5 +121,25 @@ class regularExpression{
             arr[i] = 0;
         }
         return arr;
+    }
+
+
+    /*
+      // when find a number i, flip the number at position i-1 to negative.
+    // if the number at position i-1 is already negative, i is the number that occurs twice.
+     */
+    public boolean findDuplicates(int[] nums) {
+        if(nums == null || nums.length == 0) return false;
+
+        for (int i = 0 ; i < nums.length ; i++){
+
+            int index = nums[i] - 1;
+            if (nums[index] < 0){
+                return false;
+            }
+            nums[index] = -nums[index];
+        }
+
+        return true;
     }
 }

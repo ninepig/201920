@@ -1,8 +1,38 @@
-package company.oracle.mianjing.dfs;
+package company.oracle.lastweekDash;
 
-import company.oracle.mianjing.StringRelated.braceReplaceAndislandNumberThreeWays;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import tree.TreeNode;
 
-public class islandSerial {
+public class onsite927IAM {
+    /*
+    https://www.1point3acres.com/bbs/thread-558749-1-1.html
+
+第一轮： check balanced binary tree, world ladder I 加几个BQ，
+第二轮： HM 吃饭， 加BQ，
+第三轮:   inorder BT， 需要iterator 方法，没有要求写 莫里斯的方法。 输入除了一个root，还有另一个自建object，对每个tree node做相应操作(打印之类的操作, 会讨论些edge cases，
+第四轮： bar raiser吧估计， 别组的，视频面试，写了个斐波那契热身，然后来了个发牌的OOD，shuffle用java自带的API就可以，面试官主要看对java的内置API的熟练度，中途说了如果已经有了API，就不需要写code自己再实现。
+第五轮： number of island I，加一堆变种，比如最大岛的面积，比如有各种各样的岛，
+     */
+    boolean ifBalab = true;
+    public boolean balancedTree(TreeNode root){
+            if (root == null) return false;
+            helper(root);
+            return ifBalab;
+    }
+    int helper(TreeNode root){
+        if (root == null){
+            return 0;
+        }
+        int left = helper(root.left);
+        int right = helper(root.right);
+        if (Math.abs(left - right) > 1 ){
+            ifBalab = false;
+        }
+        return  Math.max(left,right) + 1;
+    }
+
+
+
     public int numIslands(char[][] island) {
         if (island == null || island.length ==0) return 0;
         int count = 0;
@@ -81,75 +111,5 @@ public class islandSerial {
         dfs(grid,i-1,j,previousColor,helper);
         dfs(grid,i,j-1,previousColor,helper);
     }
-
-
-    public static  void main(String ... args){
-        int[][] island = new int[][]{{1,1,1},{2,2,2},{3,3,3}};
-        System.out.println(sizeOfDifferentIsland(island));
-    }
-
-
-
-
-        int[][] distance = { { 1, 0 }, {-1, 0 }, { 0, 1 }, { 0, -1 } };
-        public int numIslandsUF(char[][] grid) {
-            if (grid == null || grid.length == 0 || grid[0].length == 0) {
-                return 0;
-            }
-            UnionFind uf = new UnionFind(grid);
-            int rows = grid.length;
-            int cols = grid[0].length;
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    if (grid[i][j] == '1') {
-                        for (int[] d: distance) {
-                            int x = i + d[0];
-                            int y = j + d[1];
-                            if (x >= 0 && x < rows && y >= 0 && y < cols && grid[x][y] == '1') {
-                                int id1 = i * cols + j;
-                                int id2 = x * cols + y;
-                                uf.union(id1, id2);
-                            }
-                        }
-                    }
-                }
-            }
-            return uf.count;
-        }
-
-        class UnionFind {
-            int[] father;
-            int m, n;
-            int count = 0;
-            UnionFind(char[][] grid) {
-                m = grid.length;
-                n = grid[0].length;
-                father = new int[m * n];
-                for (int i = 0; i < m; i++) {
-                    for (int j = 0; j < n; j++) {
-                        if (grid[i][j] == '1') {
-                            int id = i * n + j;
-                            father[id] = id;
-                            count++;
-                        }
-                    }
-                }
-            }
-            public void union(int node1, int node2) {
-                int find1 = find(node1);
-                int find2 = find(node2);
-                if (find1 != find2) {
-                    father[find1] = find2;
-                    count--;
-                }
-            }
-            public int find(int node) {
-                if (father[node] == node) {
-                    return node;
-                }
-                father[node] = find(father[node]);
-                return father[node];
-            }
-        }
 
 }

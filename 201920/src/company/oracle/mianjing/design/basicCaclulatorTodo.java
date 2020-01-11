@@ -2,7 +2,7 @@ package company.oracle.mianjing.design;
 
 import java.util.Stack;
 
-public class basicCaclulator {
+public class basicCaclulatorTodo {
     // No way to be negtive number
     // Simple version of caclulator 2
     public int caclulatorWithAddAndMul(String s){

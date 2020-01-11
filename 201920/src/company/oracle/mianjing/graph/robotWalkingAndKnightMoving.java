@@ -1,6 +1,8 @@
 package company.oracle.mianjing.graph;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class robotWalkingAndKnightMoving {
@@ -81,5 +83,37 @@ public class robotWalkingAndKnightMoving {
             }
         }
         return false;
+    }
+
+    int[][] dirs = new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
+    public List<Integer> monkeyPath(int[][] matrix){
+        if (matrix == null || matrix.length == 0) return null;
+        List<Integer> res = new ArrayList<>();
+        boolean[][] visited = new boolean[matrix.length][matrix[0].length];
+        dfs(res, 0 , 0,matrix,visited , new ArrayList<Integer>());
+        return res;
+    }
+
+    // 直接dfs的话 就不需要 backtrack。
+    private void dfs(List<Integer> res, int x, int y, int[][] matrix, boolean[][] visited, ArrayList<Integer> path) {
+        if (x == matrix.length - 1  && y == matrix[0].length - 1 ){
+            path.add(matrix[x][y]);
+            for (int i = 0 ; i < path.size() ; i++){
+                res.add(path.get(i));
+            }
+            return;
+        }else {
+            visited[x][y] = true;
+            path.add(matrix[x][y]);
+            for (int[] dir : dirs){
+                int nextX = x + dir[0];
+                int nextY = y + dir[1];
+                if (nextX >= 0 && nextX < matrix.length && nextY >=0 && nextY < matrix[0].length &&
+                        (matrix[nextX][nextY] == matrix[x][y] ||matrix[nextX][nextY] == matrix[x][y] + 1 ||
+                matrix[nextX][nextY] == matrix[x][y] - 1) && !visited[nextX][nextY]){
+                    dfs(res,nextX,nextX,matrix,visited,path);
+                }
+            }
+        }
     }
 }

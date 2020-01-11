@@ -1,87 +1,145 @@
 package facebookprepare;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
-/**
- * Created by yangw on 2019/6/29.
- * 对字符串进行从左到右的遍历，如果出现左括号“（”，记录下来，如果右括号在左括号之前出现，
- * 加入左括号的count中，并且把右括号的个数-1,最后return 左右括号的个数。
- 对字符串进行又一次的遍历，如果字符串既不是“（”也不是“）”则跳过，否则选择要还是不要。
- */
 public class removeInvalidParentheses {
+    /*
+    Limit max removal rmL and rmR for backtracking boundary. Otherwise it will exhaust all possible valid substrings, not shortest ones.
+Scan from left to right, avoiding invalid strs (on the fly) by checking num of open parens.
+If it's '(', either use it, or remove it.
+If it's '(', either use it, or remove it.
+Otherwise just append it.
+Lastly set StringBuilder to the last decision point.
+In each step, make sure:
 
-    char[][] patterns = { {'(', ')'}, {')', '('} };
-
+i does not exceed s.length().
+Max removal rmL rmR and num of open parens are non negative.
+De-duplicate by adding to a HashSet.
+     */
     public List<String> removeInvalidParentheses(String s) {
-        List<String> ret = new ArrayList<>();
-        dfs(s, 0, 0, patterns[0], ret);
-        return ret;
+        List<String> res = new ArrayList<>();
+        if (s == null || s.length() == 0) return res;
+        int leftP = 0 , rightP = 0;
+        for (int i = 0 ; i < s.length() ; i++){
+            if (s.charAt(i) == '('){
+                leftP++;
+            }else if(s.charAt(i) == ')'){
+                if (leftP > 0){
+                    leftP--;
+                }else{
+                    rightP++;
+                }
+            }
+        }
+        HashSet<String> set = new HashSet<>();
+        dfs(s, 0, set, new StringBuilder() , leftP , rightP , 0);
+        return new ArrayList<>(set);
+    }
+    // Open means left paretheses.
+    private void dfs(String s, int i, HashSet<String> res, StringBuilder stringBuilder, int leftP, int rightP, int open) {
+        if (leftP < 0 || rightP < 0 || open < 0) return;
+        if (i == s.length()){
+            if (leftP == 0 && rightP == 0 && open == 0){
+                res.add(stringBuilder.toString());
+            }
+            return;
+        }
+        char c = s.charAt(i);
+        int len = stringBuilder.length();
+
+        if (c == '('){
+            // if we use (
+            dfs(s, i+1 ,res, stringBuilder.append('('),leftP , rightP , open+1);
+            // if we dont use (
+            dfs(s , i+1 ,res, stringBuilder, leftP-1, rightP , open);
+        }else if ( c== ')'){
+            // if we use )
+            dfs(s , i + 1, res, stringBuilder.append(')'), leftP , rightP, open - 1);
+            // if we dont use )
+            dfs(s, i +1 , res, stringBuilder, leftP , rightP-1, open);
+        }else{
+            dfs(s, i+1, res,stringBuilder.append(c), leftP , rightP , open);
+        }
+
+        stringBuilder.setLength(len);
     }
 
-    private void dfs(String s, int start, int lastRemove, char[] pattern, List<String> ret) {
-        int count = 0, n = s.length();
-        for (int i = start; i < n; i ++) {
-            if (s.charAt(i) == pattern[0])            {
-                count ++;
-            }
-            if (s.charAt(i) == pattern[1])            {
-                count --;
-            }
-            if (count < 0)            {
-                for (int j = lastRemove; j <= i; j ++)
-                {
-                    // when lastRemove is a more ( or ) and we remove duplicated.
-                    if (s.charAt(j) == pattern[1] && (j == lastRemove || s.charAt(j) != s.charAt(j - 1)))
-                    {
-                        dfs(s.substring(0, j) + s.substring(j + 1), i, j, pattern, ret);
+
+    public List<String> removeInvalidParenthesesBFS(String s) {
+            List<String>  res = new ArrayList<>();
+            if (s == null) return res;
+            HashSet<String> vistied = new HashSet<>();
+            Queue<String> q = new LinkedList<>();
+            vistied.add(s);
+            q.offer(s);
+            boolean found = true;
+            while (!q.isEmpty()){
+                s = q.poll();
+                if (isValid(s)){
+                    found = true;
+                    res.add(s);
+                }
+                // We already found the answer, so just skip.
+                if (found) continue;
+                for (int i = 0 ; i < s.length() ; i++){
+                    // normal character.
+                    if (s.charAt(i) != '(' && s.charAt(i) !=')') continue;
+                    // get new string.
+                    String t = s.substring(0,i) + s.substring(i+1);
+                    if (!vistied.contains(t)){
+                        q.add(t);
+                        vistied.add(t);
                     }
                 }
-                return;
             }
-        }
-        s = new StringBuilder(s).reverse().toString();
-        if (pattern[0] == patterns[0][0])        {
-            dfs(s, 0, 0, patterns[1], ret);
-        }
-        else        {
-            ret.add(s);
-        }
+            return res;
     }
 
+    private boolean isValid(String s) {
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') count++;
+            if (c == ')' && count-- == 0) return false;
+        }
+
+        return count == 0;
+    }
+
+
     // Facebook version . 一般就是返回一个valid String
-    // 扫两次的方法， 第一次检查 左边和右边match的情况，如果（有多 删除掉
-    // 第二次从右边开始往左边扫。 如果） 有多 删除掉右侧括号
+    // 扫两次的方法， 第一次检查 左边和右边match的情况，如果）有多 删除掉
+    // 第二次从右边开始往左边扫。 如果（ 有多 删除掉右侧括号
     public String removeInvalidParenthesesFacebookVersion(String s) {
-        if ( s == null || s.length() == 0) return s;
-        int l = 0 ;
+        if (s == null || s.length() == 0) return s;
+        int l = 0;
         StringBuilder sb = new StringBuilder(s);
-        for (int i = 0 ; i < sb.length() ; i++){
-            if (sb.charAt(i) == '(' ){
+        for (int i = 0; i < sb.length(); i++) {
+            if (sb.charAt(i) == '(') {
                 l++;
-            }else if(s.charAt(i) == ')'){
-                if (l == 0){
+            } else if (s.charAt(i) == ')') {
+                if (l == 0) {
                     sb.deleteCharAt(i);
-                }else {
+                } else {
                     l--;
                 }
-            }else {
+            } else {
                 continue;
             }
         }
 
         int r = 0;
-        for ( int i = sb.length() - 1 ; i >= 0 ; i--){
-            if (sb.charAt(i) == ')'){
+        for (int i = sb.length() - 1; i >= 0; i--) {
+            if (sb.charAt(i) == ')') {
                 r++;
-            }else if(sb.charAt(i) == '('){
-                if (r == 0){
+            } else if (sb.charAt(i) == '(') {
+                if (r == 0) {
                     sb.deleteCharAt(i);
-                }else{
+                } else {
                     r--;
                 }
-            }else {
+            } else {
                 continue;
             }
         }
